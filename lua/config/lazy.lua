@@ -28,6 +28,7 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.keymap.set("n", "<C-h>", ":bprevious<CR>", {})
 vim.keymap.set("n", "<C-l>", ":bnext<CR>", {})
+vim.keymap.set("n", "<leader>l", ":noh<CR>", {})
 
 -- Setup lazy.nvim
 require("lazy").setup({
