@@ -6,7 +6,7 @@ return {
 		configs.setup({
 			ensure_installed = { "lua", "javascript", "typescript", "vue", "java" },
 			highlight = { enable = true },
-			indent = { enable = false },
+			--indent = { enable = false },
 		})
 	end,
 }
