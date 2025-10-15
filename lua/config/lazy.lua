@@ -20,17 +20,20 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
 vim.wo.relativenumber = true
 vim.wo.number = true
 vim.opt.cursorline = true
--- vim.cmd("set expandtab")
+vim.opt.scrolloff = 8
+vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.keymap.set("n", "<C-h>", ":bprevious<CR>", {})
 vim.keymap.set("n", "<C-l>", ":bnext<CR>", {})
 vim.keymap.set("n", "<leader>l", ":noh<CR>", {})
-
+vim.keymap.set("n", "<leader>kb", ":%bd|e#|bd#<CR>", {})
+vim.keymap.set("n", "gx", "!xdg-open <cWORD><CR>", {})
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
@@ -39,5 +42,4 @@ require("lazy").setup({
 	checker = { enabled = true },
 })
 
-
-
+--vim.diagnostics.config({ virtual_text = true })
