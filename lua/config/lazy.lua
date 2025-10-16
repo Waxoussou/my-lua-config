@@ -44,6 +44,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 
+-- Persist Undo
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
+
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
