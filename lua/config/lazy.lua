@@ -29,11 +29,21 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
+
 vim.keymap.set("n", "<C-h>", ":bprevious<CR>", {})
 vim.keymap.set("n", "<C-l>", ":bnext<CR>", {})
 vim.keymap.set("n", "<leader>l", ":noh<CR>", {})
 vim.keymap.set("n", "<leader>kb", ":%bd|e#|bd#<CR>", {})
 vim.keymap.set("n", "gx", "!xdg-open <cWORD><CR>", {})
+
+-- Highlight selection on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
+
+
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
