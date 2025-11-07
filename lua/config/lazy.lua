@@ -21,6 +21,9 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 0
+
 vim.wo.relativenumber = true
 vim.wo.number = true
 vim.opt.cursorline = true
@@ -33,7 +36,8 @@ vim.cmd("set shiftwidth=4")
 vim.keymap.set("n", "<C-h>", ":bprevious<CR>", {})
 vim.keymap.set("n", "<C-l>", ":bnext<CR>", {})
 vim.keymap.set("n", "<leader>l", ":noh<CR>", {})
-vim.keymap.set("n", "<leader>kb", ":%bd|e#|bd#<CR>", {})
+vim.keymap.set("n", "<leader>ka", ":%bd|e#|bd#<CR>", {})
+vim.keymap.set("n", "<leader>kb", ":bd<CR>", {})
 vim.keymap.set("n", "gx", "!xdg-open <cWORD><CR>", {})
 
 -- Highlight selection on yank
@@ -51,7 +55,7 @@ vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
-		{ import = 'plugins' }
+		{ import = "plugins" },
 	},
 	checker = { enabled = true },
 })
