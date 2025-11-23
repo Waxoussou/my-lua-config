@@ -38,7 +38,9 @@ vim.keymap.set("n", "<C-l>", ":bnext<CR>", {})
 vim.keymap.set("n", "<leader>l", ":noh<CR>", {})
 vim.keymap.set("n", "<leader>ka", ":%bd|e#|bd#<CR>", {})
 vim.keymap.set("n", "<leader>kb", ":bd<CR>", {})
-vim.keymap.set("n", "gx", "!xdg-open <cWORD><CR>", {})
+-- vim.keymap.set("n", "gx", "!xdg-open <cWORD><CR>", {})
+
+
 
 -- Highlight selection on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -46,7 +48,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
-
 
 -- Persist Undo
 vim.opt.undofile = true
@@ -59,5 +60,4 @@ require("lazy").setup({
 	},
 	checker = { enabled = true },
 })
-
 --vim.diagnostics.config({ virtual_text = true })
