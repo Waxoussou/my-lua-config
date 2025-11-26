@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "vue_ls", "vtsls" },
+				ensure_installed = { "lua_ls", "vtsls", "vue_ls" },
 			})
 		end,
 	},
@@ -50,7 +50,7 @@ return {
 				},
 				filetypes = tsserver_filetypes,
 			}
-            vim.lsp.config("vtsls", vtsls_config)
+			vim.lsp.config("vtsls", vtsls_config)
 			-- vim.lsp.config("ts_ls", {
 			-- 	capabilities = capabilities,
 			-- 	init_options = {
@@ -71,13 +71,20 @@ return {
 			})
 
 			-- Keymaps
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "K", function()
+				vim.lsp.buf.hover({
+					border = "single",
+				})
+			end, { desc = "Lsp Hover" })
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
 			vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {})
-			vim.diagnostic.config({ virtual_text = true })
+			vim.diagnostic.config({
+				virtual_text = true,
+				float = { border = "solid", source = "always" },
+			})
 		end,
 	},
 }
