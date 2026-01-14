@@ -38,9 +38,14 @@ vim.keymap.set("n", "<C-l>", ":bnext<CR>", {})
 vim.keymap.set("n", "<leader>l", ":noh<CR>", {})
 vim.keymap.set("n", "<leader>ka", ":%bd|e#|bd#<CR>", {})
 vim.keymap.set("n", "<leader>kb", ":bd<CR>", {})
+
+-- YANK/PASTE - System CLIPBOARD
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "yank into system clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>Y", '"+Y', { desc = "yank line to system clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>P", '"+P', { desc = "Paste before pointer, from system clipboard" })
+
 -- vim.keymap.set("n", "gx", "!xdg-open <cWORD><CR>", {})
-
-
 
 -- Highlight selection on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
