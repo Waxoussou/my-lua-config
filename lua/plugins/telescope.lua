@@ -60,6 +60,7 @@ return {
 			end, { desc = "Live grep all (hidden files)" })
 
 			vim.keymap.set("n", "<leader>b", builtin.buffers, {})
+			vim.keymap.set("n", "<leader>o", builtin.oldfiles, {})
 			vim.keymap.set("n", "g/", builtin.grep_string, {})
 			vim.keymap.set("v", "g/", function()
 				local selection = get_visual_selection()
@@ -67,6 +68,8 @@ return {
 					search = selection,
 				})
 			end, {})
+			vim.keymap.set("n", "gd", builtin.lsp_definitions, {})
+			vim.keymap.set("n", "grr", builtin.lsp_references, {})
 		end,
 	},
 	{
